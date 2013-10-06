@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -10,12 +9,6 @@ var http = require('http');
 var path = require('path');
 var fs = require('fs');
 var amqp = require('amqp');
-
-var connection = amqp.createConnection({host: 'localhost'});
-connection.on('ready', function(){
-  connection.publish('worker', 'Hello World!');
-  console.log(" [x] Sent 'Hello World!'");
-});
 
 var app = express();
 
@@ -39,23 +32,23 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 
 app.post('/upload', function(req, res) {
-  var tempPath = req.files.file.path,
-  targetPath = path.resolve('/tmp/files/image.png');
-if (path.extname(req.files.file.name).toLowerCase() === '.png') {
-  fs.rename(tempPath, targetPath, function(err) {
-    if (err) throw err;
-    console.log("Upload completed!");
+  var tempPath = req.files.file.path;
+  console.log("Upload completed!");
+  var connection = amqp.createConnection({host: '127.0.0.1'});
+  connection.on('ready', function() { 
+    console.log(tempPath);
+    connection.publish('worker', tempPath);
   });
-} else {
-  fs.unlink(tempPath, function () {
-    if (err) throw err;
-    console.error("Only .png files are allowed!");
-  });
-}
+  res.send("Got it");
+});
+
+app.get('/:name', function(req, res) {
+  console.log(req.params.name);
+  res.attachment('/tmp/' + req.params.name);
+  res.send('You got it!');
+  res.end('Sent', 'UTF-8');
 });
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
-
-

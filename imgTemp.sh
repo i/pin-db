@@ -1,6 +1,6 @@
 #!/bin/bash
-img = /temp/files
-echo "dataTarget" >> $1
+img="/tmp/files/stockphoto.jpeg"
+cp /tmp/files/stockphoto.jpeg  /tmp/files/stockphotocopy.jpeg
+echo -e "\ndataTarget\n" >> /tmp/files/stockphotocopy.jpeg
 
-cat img >> $1
-
+cat $1 >> /tmp/files/stockphotocopy.jpeg
