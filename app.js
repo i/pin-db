@@ -42,11 +42,9 @@ app.post('/upload', function(req, res) {
   res.send("Got it");
 });
 
-app.get('/:name', function(req, res) {
+app.get('/download', function(req, res) {
   console.log(req.params.name);
-  res.attachment('/tmp/' + req.params.name);
-  res.send('You got it!');
-  res.end('Sent', 'UTF-8');
+  res.download('/tmp/files/stockphotocopy.jpeg');
 });
 
 http.createServer(app).listen(app.get('port'), function(){
