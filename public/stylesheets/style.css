@@ -1,8 +1,10 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Garamound";
+  color:white;
+  background-image:url('/images/redbg.jpeg');
 }
 
 a {
-  color: #00B7FF;
+	color:white;
 }
