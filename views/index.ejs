@@ -1,5 +1,18 @@
 <html lang="en">
   <head>
+  	<script>
+	function updateSlogan(){
+		document.getElementById("slogan").innerHTML="Don't switch";
+		var slogan[5] = { "Your Girlfriend's Database.", "Pinning down big data.", "The Ultimate Cloud Computing Solution.", "The Kinda of Database the NSA Warned You About.", "Database? More like PictureBase" };
+	switch(document.getElementById("slogan").innerHTML){
+		slogan[0]: document.getElementById("slogan").innerHTML = slogan[1]; break; 
+		slogan[1]: document.getElementById("slogan").innerHTML = slogan[2]; break;
+		slogan[2]: document.getElementById("slogan").innerHTML = slogan[3]; break; 
+		slogan[3]: document.getElementById("slogan").innerHTML = slogan[4]; break;
+		default: document.getElementById("slogan").innerHTML = slogan[0]; break; 
+	}
+}
+	</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -49,7 +62,7 @@
       <div class="starter-template">
 	  	<img style="display:block; margin-left: auto; margin-right: auto;" src="/images/pindb_img.png" alt="WHOOPS!">	
 		
-		<p id="slogan" class="lead" style="text-align:center;">Your Girlfriend's Database</p>		
+		<p id="slogan" class="lead" style="text-align:center;">Your Girlfriend's Database.</p>		
 	</div>
 	<script> setInterval("updateSlogan()", 5000); </script>
 	<br><br><br><br><br><br>
