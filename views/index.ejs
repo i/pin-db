@@ -1,13 +1,73 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+    <title>PinDB</title>
+    <!-- Bootstrap core CSS -->
+	
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+  <body style="color:white;"> 
+  <font face="Georgia">
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top" >
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">PinDB</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="starter-template">
+		<p class="lead" style="color:white; text-align:center; font-size:55px; text-decoration:underline;">PinDB</p>
+	  	<p class="lead" style="text-align:center;">Your everyday hosting needs!</p>		
+	</div>
+	<br><br><br><br><br><br>
+
+	<center>
+	<div style="text-align:center; height:auto; margin: 0 auto; align:center;" class="formShit"> 
+		<form action="" style="width:50%; margin:0 auto; align:cetner;"> 
+			<p style="font-size: 18px;">Choose a file to upload: </p><center><input style="margin:0 auto; align:center;" type="file" name="userImg"></center><br>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+	</center>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	</font>
   </body>
 </html>
