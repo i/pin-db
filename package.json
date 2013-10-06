@@ -9,6 +9,7 @@
     "express": "3.4.0",
     "ejs": "*",
     "zombie": "~2.0.0-alpha23",
+    "spooky" : "*",
     "amqp": "~0.1.7"
   }
 }
