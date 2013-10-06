@@ -8,6 +8,14 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var fs = require('fs');
+var amqp = require('amqp');
+
+var connection = amqp.createConnection({host: 'localhost'});
+connection.on('ready', function(){
+  connection.publish('worker', 'Hello World!');
+  console.log(" [x] Sent 'Hello World!'");
+});
 
 var app = express();
 
@@ -29,6 +37,22 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+
+app.post('/upload', function(req, res) {
+  var tempPath = req.files.file.path,
+  targetPath = path.resolve('/tmp/files/image.png');
+if (path.extname(req.files.file.name).toLowerCase() === '.png') {
+  fs.rename(tempPath, targetPath, function(err) {
+    if (err) throw err;
+    console.log("Upload completed!");
+  });
+} else {
+  fs.unlink(tempPath, function () {
+    if (err) throw err;
+    console.error("Only .png files are allowed!");
+  });
+}
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
